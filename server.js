@@ -14,6 +14,24 @@ const PORT = 4000;
 
 /* SECTION: Routes */
 
+//Index GET / - Presentational
+app.get("/", (req, res) => {
+    res.send("Post Index");
+});
+
+// New GET /posts - Presentational form
+
+// Create POST /posts - Functional
+
+// Show GET /posts/:id - Presentational
+
+// Edit GET /posts/:id/edit - Presentational form
+
+// Update PUT /posts/:id - Functional
+
+// Destroy DELETE /posts/:id - Functional
+
+//404
 app.get("/*", (req, res) => {
     res.send("Oh no! cannot find that route!");
 });
