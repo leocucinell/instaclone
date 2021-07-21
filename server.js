@@ -3,6 +3,7 @@ const express = require("express");
 
 
 /* SECTION: Internal modules */
+const PostDB = require("./models/post_model");
 
 /* SECTION: Instanced module */
 const app = express();
@@ -22,7 +23,8 @@ app.get("/", (req, res) => {
 
 //Index GET / - Presentational
 app.get("/posts", (req, res) => {
-    res.send("Post Index");
+    const allPosts = PostDB.find();
+    res.send(allPosts);
 });
 
 // New GET /posts/new - Presentational form
@@ -78,16 +80,3 @@ app.get("/*", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Instaclone listening on port: ${PORT}`);
 });
-
-//make a list of fake posts
-const instaposts = [
-    {
-        user:{
-            userName: "",
-            avatar: ""
-        },
-        image: "",
-        content: "",
-        likes: 0
-    }
-]
