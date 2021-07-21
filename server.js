@@ -61,6 +61,13 @@ app.put("/posts/:id", (req, res) => {
 });
 
 // Destroy DELETE /posts/:id - Functional
+app.delete("/posts/:id", (req, res) => {
+    //echo id
+    res.send({
+        message: "Hit delete route",
+        id: req.params.id
+    })
+});
 
 //404
 app.get("/*", (req, res) => {
