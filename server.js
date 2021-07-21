@@ -10,21 +10,26 @@ const app = express();
 
 /* SECTION: Server configuration */
 const PORT = 4000;
+app.set("view engine", "ejs");
 
 /* SECTION: Middleware */
 
 //access bodyparser
 app.use(express.urlencoded({extended: true}));
 
+
+
+
 /* SECTION: Routes */
 app.get("/", (req, res) => {
     res.redirect("/posts")
 });
 
+
 //Index GET / - Presentational
 app.get("/posts", (req, res) => {
-    const allPosts = PostDB.find();
-    res.send(allPosts);
+    const context = {posts: PostDB.find()};
+    return res.render("posts/index.ejs", context);
 });
 
 // New GET /posts/new - Presentational form
@@ -75,6 +80,9 @@ app.delete("/posts/:id", (req, res) => {
 app.get("/*", (req, res) => {
     res.send("Oh no! cannot find that route!");
 });
+
+
+
 
 /* SECTION: Server bind */
 app.listen(PORT, () => {
