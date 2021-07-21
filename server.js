@@ -12,6 +12,9 @@ const PORT = 4000;
 
 /* SECTION: Middleware */
 
+//access bodyparser
+app.use(express.urlencoded({extended: true}));
+
 /* SECTION: Routes */
 app.get("/", (req, res) => {
     res.redirect("/posts")
@@ -28,9 +31,17 @@ app.get("/posts/new", (req, res) => {
 });
 
 // Create POST /posts - Functional
+app.post("/posts", (req, res) => {
+    //echo check
+    res.send({
+        message: "Hit the create route",
+        body: req.body
+    });
+});
 
 // Show GET /posts/:id - Presentational
 app.get("/posts/:id", (req, res) => {
+    //echo check
     res.send(`Post show page id: ${req.params.id}`);
 });
 
