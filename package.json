@@ -1,0 +1,25 @@
+{
+  "name": "instaclone",
+  "version": "1.0.0",
+  "description": "Learning how to make servers using express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leocucinell/instaclone.git"
+  },
+  "author": "Leo Cucinell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leocucinell/instaclone/issues"
+  },
+  "homepage": "https://github.com/leocucinell/instaclone#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0"
+  }
+}
